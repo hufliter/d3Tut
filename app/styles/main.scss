@@ -113,3 +113,19 @@ circle {
   stroke: steelblue;
   stroke-width: 1.5px;
 }
+polyline{
+  opacity: .3;
+  stroke: black;
+  stroke-width: 2px;
+  fill: none;
+}
+path.slice{
+  stroke-width:2px;
+}
+.bar {
+  float: left;
+  width: 30px;
+  margin-right: 20px;
+  background-color: #F4F5F7;
+  border: 1px solid #C5C5C5;
+}

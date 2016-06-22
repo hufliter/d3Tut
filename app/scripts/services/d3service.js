@@ -23,7 +23,7 @@ angular.module('tutD3AngApp')
     scriptTag.async = true;
     scriptTag.src = 'bower_components/d3/d3.min.js';
     scriptTag.onreadystatechange = function () {
-    if (this.readyState == 'complete') onScriptLoad();
+        if (this.readyState == 'complete') onScriptLoad();
     }
     scriptTag.onload = onScriptLoad;
 

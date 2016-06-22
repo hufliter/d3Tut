@@ -59,6 +59,11 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'groupedbar'  
       })
+      .when('/play-ground', {
+        templateUrl: 'views/playGround.html',
+        controller: 'MainCtrl',
+        controllerAs: 'playground'  
+      })
       .otherwise({
         redirectTo: '/'
       });

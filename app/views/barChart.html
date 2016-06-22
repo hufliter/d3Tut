@@ -1,1 +1,8 @@
 <bar-chart data="barChartData"></bar-chart>
+<form>
+	<ul>
+		<li ng-repeat="data in barChartData">
+			{{data.name }} <input type="number" ng-model="barChartData[$index].score">
+		</li>
+	</ul>
+</form>
