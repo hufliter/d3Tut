@@ -15,4 +15,5 @@ angular.module('tutD3AngApp')
 		{ name: 'blue', score: 88 },
 		{ name: 'pink', score: 58 },
 	];
+	
 });

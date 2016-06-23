@@ -34,6 +34,12 @@ angular.module('tutD3AngApp')
 			.x(function(d){ return x(d.date); })
 			.y(function(d){ return y(d.close); });
 
+			//area
+			var area = d3.svg.area()
+			.x(function(d){ return x(d.date); })
+			.y0(height)
+			.y1(function(d){ return y(d.close); });
+
 			var svg = d3.select(element[0]).append('svg')
 			.attr('width', width + margin.left + margin.right)
 			.attr('height', height + margin.top + margin.bottom)
@@ -62,8 +68,10 @@ angular.module('tutD3AngApp')
 
 				svg.append('path')
 				.datum(data)
-				.attr('class', 'line')
-				.attr('d', line);
+				.attr('class', 'area')
+				.attr('d', area)
+				.attr('opacity', '0.15')
+				.transition().duration(1000);
 			});
 
 			function type(d){

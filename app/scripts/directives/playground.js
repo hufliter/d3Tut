@@ -47,8 +47,8 @@ angular.module('tutD3AngApp')
 			var key = function(d){ return d.data.label; };
 
 			var color = d3.scale.ordinal()
-				.domain(["Lorem ipsum", "dolor sit", "amet", "consectetur", "adipisicing", "elit", "sed", "do", "eiusmod", "tempor", "incididunt"])
-				.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00", "#39ff12", "#0a3f96", "#12ffaa", "#bb19f3"]);
+				.domain(["Lorem ipsum", "dolor sit", "amet"])
+				.range(["#98abc5", "#8a89a6", "#7b6888"]);
 
 			//create random data function
 			function randomData (){
@@ -157,32 +157,38 @@ angular.module('tutD3AngApp')
 			});
 
 			//Test purpose Selection Exit
-			// var numbers  = [1, 2, 4, 8, 16, 32];
-			// function updateTest(){
-			// 	var selection = d3.select(".exit")
-			// 	    .selectAll(".bar").data(numbers)
-			// 	    .style("height", function(d){ 
-			// 	      return d + "px"; 
-			// 	    })
-			// 	    .style("margin-top", function(d){ 
-			// 	      return (100 - d) + "px"; 
-			// 	    });
-			// 	selection.enter()
-			// 	    .append("div").attr("class", "bar")
-			// 	    .style("height", function(d){ 
-			// 	      	return d + "px"; 
-			// 	    })
-			// 	    .style("margin-top", function(d){ 
-			// 	      	return (100 - d) + "px"; 
-			// 	    })
-			// 	    .on("click", function(e, i){
-			// 	      	numbers.splice(i, 1);
-			// 	      	updateTest();
-			// 	    });
+			var numbers  = [1, 2, 4, 8, 16, 32];
+			function updateTest(){
+				var selection = d3.select(".exit")
+				    .selectAll(".bar").data(numbers)
+				    .style("height", function(d){ 
+				      return d + "px"; 
+				    })
+				    .style("margin-top", function(d){ 
+				      return (100 - d) + "px"; 
+				    });
+				selection.enter()
+				    .append("div").attr("class", "bar")
+				    .style("height", function(d){
+				      	return d + "px"; 
+				    })
+				    .style("margin-top", function(d){ 
+				      	return (100 - d) + "px"; 
+				    })
+				    .on("click", function(e, i){
+				    	// console.log(e);
+				      	// numbers.splice(i, 1);
+				      	numbers[i] += 15;
+				      	// console.log(numbers[i]);
+				      	updateTest();
+				    });
 
-			//   	selection.exit().remove();
-			// }
-			// updateTest();
+				selection.transition().duration(1000)
+				.styleTween("height", function(d){
+				})
+			  	selection.exit().remove();
+			}
+			updateTest();
       	}
     };
 });

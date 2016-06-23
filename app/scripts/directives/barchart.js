@@ -11,7 +11,7 @@ angular.module('tutD3AngApp')
     return {
       restrict: 'AE',
       scope: {
-  		data: '='
+  		data: '=',
       },
       link: function postLink(scope, element, attrs) {
         d3Service.d3().then( function(d){
@@ -24,14 +24,6 @@ angular.module('tutD3AngApp')
         	window.onresize = function(){
         		scope.$apply();
         	}
-
-        	//add example data
-        	// scope.barChartData = [
-        	// 	{ name: 'red', score: 42 },
-        	// 	{ name: 'green', score: 78 },
-        	// 	{ name: 'blue', score: 88 },
-        	// 	{ name: 'pink', score: 58 },
-        	// ];
 
         	//Watch for resize event
         	scope.$watch(function(){

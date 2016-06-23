@@ -64,6 +64,11 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'playground'  
       })
+      .when('/scatter-bar-trans', {
+        templateUrl: 'views/scatterChartTrans.html',
+        controller: 'MainCtrl',
+        controllerAs: 'scatterTrans'  
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -10,6 +10,7 @@ angular.module('tutD3AngApp')
   .directive('pieChart', function (d3Service) {
     return {
       	restrict: 'EA',
+      	scope: {},
       	link: function postLink(scope, element, attrs) {
     		var width = 960,
 				height = 500,
