@@ -15,6 +15,7 @@ angular.module('tutD3AngApp')
 			    height = 550,
 				radius = Math.min(width, height) / 2;
 
+
         	var svg = d3.select(element[0])
 				.append("svg")
 				.style('width',width)
@@ -61,7 +62,6 @@ angular.module('tutD3AngApp')
 
 			//create function change when click button
 			function change(data) {
-				/* ------- PIE SLICES -------*/
 				var slice = svg.select(".slices").selectAll("path.slice")
 					.data(pie(data), key);
 
@@ -84,7 +84,6 @@ angular.module('tutD3AngApp')
 				slice.exit()
 					.remove();
 
-				/* ------- TEXT LABELS -------*/
 
 				var text = svg.select(".labels").selectAll("text")
 					.data(pie(data), key);
@@ -125,7 +124,6 @@ angular.module('tutD3AngApp')
 				text.exit()
 					.remove();
 
-				/* ------- SLICE TO TEXT POLYLINES -------*/
 
 				var polyline = svg.select(".lines").selectAll("polyline")
 					.data(pie(data), key);
@@ -157,7 +155,7 @@ angular.module('tutD3AngApp')
 			});
 
 			//Test purpose Selection Exit
-			var numbers  = [1, 2, 4, 8, 16, 32];
+			/*var numbers  = [1, 2, 4, 8, 16, 32];
 			function updateTest(){
 				var selection = d3.select(".exit")
 				    .selectAll(".bar").data(numbers)
@@ -188,7 +186,8 @@ angular.module('tutD3AngApp')
 				})
 			  	selection.exit().remove();
 			}
-			updateTest();
+			updateTest();*/
+
       	}
     };
 });

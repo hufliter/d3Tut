@@ -54,23 +54,24 @@ angular.module('tutD3AngApp')
 
 				svg.append('g')
 				.attr('class', 'x axis')
-				.attr('transform', 'translate(0,'+ (height - padding) + ')')
+				.attr('transform', 'translate(0,' + (height - padding ) + ')' )
 				.call(xAxis);
 
 				svg.append('g')
-				.attr('class', 'y axis')
+				.attr('class','y axis')
 				.attr('transform', 'translate(' + padding + ',0)')
 				.call(yAxis);
 
-				d3.select('.update').on('click', function(d){
+				d3.select('.update').on('click', function(){
 					var dataSet = [];
-		        	var numDataPoints = 15;
+		        	var numDataPoints = /*Math.floor(Math.random() * 50) + 1*/ 15;
 		        	var maxRange = Math.random() * 1000;  // Max range of new values
-		        	for(var i = 0; i < numDataPoints; i++) {
+		        	for(var i=0; i < numDataPoints; i++) {
 		                var newNumber1 = Math.floor(Math.random() * maxRange);  // New random integer
 		                var newNumber2 = Math.floor(Math.random() * maxRange);  // New random integer
 		                dataSet.push([newNumber1, newNumber2]);  // Add new number to array
 		            }
+
 		            xScale.domain([0, d3.max(dataSet, function(d){ return d[0]; })]);
 		            yScale.domain([0, d3.max(dataSet, function(d){ return d[1]; })]);
 
@@ -78,22 +79,22 @@ angular.module('tutD3AngApp')
 		            .data(dataSet)
 		            .transition()
 		            .duration(1000)
-		            .each("start", function(){
+		            .each('start', function(){
 		            	d3.select(this)
-		            	.attr('fill', 'blue')
-		            	.attr('r', 25);
+		            	.attr('fill', 'pink')
+		            	.attr('r', 10);
 		            })
 		            .delay(function(d, i){
 		            	return i / dataSet.length * 500;
 		            })
-		            .attr('cx', function(d, i) { return xScale(d[0]); })
-		            .attr('cy', function(d, i) { return yScale(d[1]); })
-		            .each("end", function(){
+		            .attr('cx', function(d){ return xScale(d[0]); })
+		            .attr('cy', function(d){ return yScale(d[1]); })
+		            .each('end', function(){
 		            	d3.select(this)
 		            	.transition()
 		            	.duration(1000)
 		            	.attr('fill', 'green')
-		            	.attr('r', 10);
+		            	.attr('r', 2);
 		            });
 
 		            svg.select('.x.axis')
@@ -105,6 +106,7 @@ angular.module('tutD3AngApp')
 		            .transition()
 		            .duration(1000)
 		            .call(yAxis);
+
 				});
             /*End setting for Chart*/
       	}
